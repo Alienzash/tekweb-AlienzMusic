@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "picture": "assets/logo.jpeg",
+        "title": "Safe And Sound",
+        "artist": "Different Heaven",
+        "song": "assets/media/lagu.m4a"
+    },
+    {
+        "id": 2,
+        "picture": "assets/logo.jpeg",
+        "title": "All I Need",
+        "artist": "Ariadne feat Karl Killing",
+        "song": "assets/media/lagu2.mp3"
+    },
+    {
+        "id": 3,
+        "picture": "assets/logo.jpeg",
+        "title": "FAVHELLA",
+        "artist": "ANGELPLAYA & T-Mass",
+        "song": "assets/media/lagu3.mp3"
+    },
+    {
+        "id": 4,
+        "picture": "assets/logo.jpeg",
+        "title": "Time With You",
+        "artist": "Tollef",
+        "song": "assets/media/lagu4.mp3"
+    },
+    {
+        "id": 5,
+        "picture": "assets/logo.jpeg",
+        "title": "Safe And Sound",
+        "artist": "Different Heaven",
+        "song": "assets/media/lagu.m4a"
+    },
+    {
+        "id": 6,
+        "picture": "assets/logo.jpeg",
+        "title": "All I Need",
+        "artist": "Ariadne feat Karl Killing",
+        "song": "assets/media/lagu2.mp3"
+    }
+]

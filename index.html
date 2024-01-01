@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alienz Music</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://kit.fontawesome.com/576a1daef7.js" crossorigin="anonymous"></script><!--font source-->
+</head>
+<body>
+    <div class="card">
+        <div class="musicImage">
+            <!-- <img class="musicPicture" src="assets/logo.jpg" alt="music album cover"> -->
+        </div>
+        <div class="musicInfo">
+            <!-- <h1 class="musicTitle" style="margin: 0;">Lagu Kemenangan</h1>
+            <p class="artistName" style="margin: 0;">Bapak dari Bocil Kematian</p> -->
+        </div>
+        <div class="playTrack">
+            <audio id="currentSong">
+                <!-- <source src="assets/media/lagu.m4a" type="audio/mpeg"> -->
+            </audio>
+            <input type="range" value="0" max="100" id="musicProgress">
+        </div>
+        <div class="musicButton">
+            <div class="button suffle"><i class="fa-solid fa-shuffle" id="shuffle" onclick="shuffle()"></i></div>
+            <div class="button previousSong"><i class="fa-solid fa-backward-step" onclick="previousMusic()"></i></div>
+            <div class="button playOrStop"><i class="fa-solid fa-play" id="playOrStop" onclick="playOrPause()"></i></div>
+            <div class="button nextSong"><i class="fa-solid fa-forward-step" onclick="nextMusic()"></i></div>
+            <div class="button repeat" onclick="ulangMusic()"><i class="fa-solid fa-repeat"></i></div>
+        </div>
+    </div>
+    <div class="musicList">
+        <h1 style="margin: 0; color: #CED4DA;" onclick="keatas()">Next Song</h1>
+        <hr style="margin: 2px;">
+        <div class="musicListInfoContainer">
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

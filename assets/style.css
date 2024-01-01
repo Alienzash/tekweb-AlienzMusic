@@ -1,0 +1,196 @@
+body {
+    display: flex;
+    text-align: center;
+    background-color: #212529;
+    column-gap: 15%;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: flex-end;
+    color: #CED4DA
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    background-color: #0E1C26;
+    min-width: 350px;
+    height: 450px;
+    border: 3px solid whitesmoke;
+    border-radius: 5%;
+    box-shadow: -6px 9px 14px -6px rgba(0,0,0,0.54);
+    -webkit-box-shadow: -6px 9px 14px -6px rgba(0,0,0,0.54);
+    -moz-box-shadow: -6px 9px 14px -6px rgba(0,0,0,0.54);
+}
+
+.musicImage {
+    margin: 35px 0 10px 0;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border: 3px solid #CED4DA;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.musicInfo {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+}
+.playTrack {
+    margin-top: 10px;
+    align-self: center;
+    padding: 1px;
+    width: 85%;
+}
+
+.musicButton {
+    margin: 10px;
+    align-self: center;
+    width: 85%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 25px;
+    color: #BFCFE7;
+}
+
+.playOrStop {
+    background-color: #525CEB;
+    border: 3px solid;
+}
+
+.button:hover {
+    color: #C9F2C7;
+}
+
+#musicProgress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#musicProgress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #525CEB;
+    border-radius: 20px;
+    width: 8px;
+    height: 20px;
+    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+
+ .musicList {
+    margin-top: 50px;
+    background-color: #272838;
+    border: 3px solid whitesmoke;
+    border-radius: 50px 0 0 10px;
+    width: 300px;
+    height: 485px;
+    overflow-y: scroll;
+}
+.musicLists {
+    margin-top: 0;
+    text-align: left;
+}
+.musicListInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.musicListInfo{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+}
+.musicListInfo:hover {
+    width: 80%;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.infoMiniLogo {
+    overflow: hidden;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}
+.infoSongAndArtist {
+    text-align: start;
+    flex: 3;
+}
+@media screen and (max-width: 900px) {
+    body {
+        flex-direction: column;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+    .card {
+        align-self: center;
+        margin-top: 1%;
+        max-width: 400px;
+        min-height: 650px;
+        justify-content: unset;
+    }
+    .musicImage {
+        margin-top: 15%;
+        justify-content: center;
+        width: 275px;
+        height: 275px;
+    }
+    #musicProgress::-webkit-slider-thumb {
+        width: 1rem;
+        height: 2rem;
+    }
+    .button {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
+    .musicList {
+        max-width: 400px;
+        height: 40px;
+        margin-top: -45px;
+        align-self: center;
+        border-radius: 50px 50px 10px 10px;
+        overflow: hidden;
+    }
+    .playTrack {
+        margin-top: 10%;
+    }
+    .musicButton {
+        margin-top: 5%;
+    }
+    .musicInfo {
+        margin-top: 15%;
+        font-size: 15px;
+    }
+}
+/* @media screen and (min-width: 500px) {
+    .card {
+        margin-top: 0;
+    }
+    .musicList {
+        margin-top: -90px
+    }
+} */
