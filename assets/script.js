@@ -146,17 +146,7 @@ fetch('assets/data.json')
             updateMusicInfo(index);
             // Set up event listeners
             audioElement.addEventListener('ended', () => {
-                if (isRepeated) {
-                    audioElement.currentTime = 0;
-                    musicProgress.value = 0;
-                    shouldAutoplay = true;
-                    audioElement.play().catch(error => {
-                        console.error('Autoplay error:', error);
-                    });
-                    repeat.style.color = "#BFCFE7";
-                    isRepeated = !isRepeated;
-                    playMusic(currentMusic);
-                } else if(isShuffled && !isRepeated) {
+                if(isShuffled && !isRepeated) {
                     audioElement.currentTime = 0;
                     musicProgress.value = 0;
                     shouldAutoplay = true;
@@ -167,6 +157,16 @@ fetch('assets/data.json')
                     });
                     nextIndex = currentMusicIndex;
                     playMusic(nextIndex);
+                }else if (isRepeated) {
+                    audioElement.currentTime = 0;
+                    musicProgress.value = 0;
+                    shouldAutoplay = true;
+                    audioElement.play().catch(error => {
+                        console.error('Autoplay error:', error);
+                    });
+                    repeat.style.color = "#BFCFE7";
+                    isRepeated = !isRepeated;
+                    playMusic(currentMusic);
                 } else {
                     const nextIndex = (index + 1) % data.length;
                     playMusic(nextIndex);
