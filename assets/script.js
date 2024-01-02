@@ -47,8 +47,6 @@ let alreadyClicked = false;
 let currentMusicIndex = 0;
 let fetchData;
 let playMusic;
-let isShuffled = false;
-let shuffle = document.getElementById("shuffle");
 
 audioElement.addEventListener('loadedmetadata', () => {
     musicProgress.max = audioElement.duration;
@@ -81,14 +79,15 @@ function playOrPause() {
         controlIcon.classList.remove("fa-play");
     }
 };
-function ulangMusic() {
-    isRepeated = !isRepeated;
-    if (isRepeated) {
-        repeat.style.color = "#525CEB";
-    } else {
-        repeat.style.color = "#BFCFE7";
-    }
-};
+// function ulangMusic() {
+//     isRepeated = !isRepeated;
+//     if (isRepeated) {
+//         repeat.style.color = "#525CEB";
+//         const nextIndex = currentMusicIndex;
+//     } else {
+//         repeat.style.color = "#BFCFE7";
+//     }
+// };
 function keatas() {
     let playlistSection = document.querySelector(".musicList");
     let width = window.innerWidth;
@@ -119,14 +118,6 @@ function previousMusic() {
         playMusic(nextIndex);
     }
 };
-function shuffleMusic() {
-    isShuffled = !isShuffled;
-    if (isShuffled) {
-        shuffle.style.color = "#525CEB";
-    } else {
-        shuffle.style.color = "#BFCFE7";
-    };
-};
 
 
 // Fetch your music data and update the DOM
@@ -146,32 +137,19 @@ fetch('assets/data.json')
             updateMusicInfo(index);
             // Set up event listeners
             audioElement.addEventListener('ended', () => {
-                if(isShuffled && !isRepeated) {
-                    audioElement.currentTime = 0;
-                    musicProgress.value = 0;
-                    shouldAutoplay = true;
-                    currentMusicIndex = parseInt(Math.random()*fetchData.length);
-                    console.log(currentMusicIndex);
-                    audioElement.play().catch(error => {
-                        console.error('shuffle error:', error);
-                    });
-                    nextIndex = currentMusicIndex;
+                // const nextIndex = currentMusicIndex;
+                // console.log("nextIndex=",nextIndex);
+                // if (isRepeated) {
+                //     const nextIndex = currentMusicIndex;
+                //     isRepeated = !isRepeated;
+                //     repeat.style.color = "#BFCFE7";
+                //     console.log("nextIndex=",nextIndex);
+                //     playMusic(nextIndex);
+                // } else {
+                    const nextIndex = (currentMusicIndex + 1) % data.length;
                     playMusic(nextIndex);
-                }else if (isRepeated) {
-                    audioElement.currentTime = 0;
-                    musicProgress.value = 0;
-                    shouldAutoplay = true;
-                    audioElement.play().catch(error => {
-                        console.error('Autoplay error:', error);
-                    });
-                    repeat.style.color = "#BFCFE7";
-                    isRepeated = !isRepeated;
-                    playMusic(currentMusic);
-                } else {
-                    const nextIndex = (index + 1) % data.length;
-                    playMusic(nextIndex);
-                };
-            });
+                // };
+            });            
         }
         // Start playing the first music
         playMusic(0);
