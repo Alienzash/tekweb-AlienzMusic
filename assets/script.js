@@ -47,6 +47,8 @@ let alreadyClicked = false;
 let currentMusicIndex = 0;
 let fetchData;
 let playMusic;
+let isShuffled = false;
+let shuffle = document.getElementById("shuffle");
 
 audioElement.addEventListener('loadedmetadata', () => {
     musicProgress.max = audioElement.duration;
@@ -117,6 +119,14 @@ function previousMusic() {
         playMusic(nextIndex);
     }
 };
+function shuffleMusic() {
+    isShuffled = !isShuffled;
+    if (isShuffled) {
+        shuffle.style.color = "#525CEB";
+    } else {
+        shuffle.style.color = "#BFCFE7";
+    };
+};
 
 
 // Fetch your music data and update the DOM
@@ -146,6 +156,17 @@ fetch('assets/data.json')
                     repeat.style.color = "#BFCFE7";
                     isRepeated = !isRepeated;
                     playMusic(currentMusic);
+                } else if(isShuffled) {
+                    audioElement.currentTime = 0;
+                    musicProgress.value = 0;
+                    shouldAutoplay = true;
+                    currentMusicIndex = parseInt(Math.random()*fetchData.length);
+                    console.log(currentMusicIndex);
+                    audioElement.play().catch(error => {
+                        console.error('shuffle error:', error);
+                    });
+                    nextIndex = currentMusicIndex;
+                    playMusic(nextIndex);
                 } else {
                     const nextIndex = (index + 1) % data.length;
                     playMusic(nextIndex);
