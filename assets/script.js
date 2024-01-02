@@ -156,7 +156,7 @@ fetch('assets/data.json')
                     repeat.style.color = "#BFCFE7";
                     isRepeated = !isRepeated;
                     playMusic(currentMusic);
-                } else if(isShuffled) {
+                } else if(isShuffled && !isRepeated) {
                     audioElement.currentTime = 0;
                     musicProgress.value = 0;
                     shouldAutoplay = true;
